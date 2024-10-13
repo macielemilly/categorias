@@ -1,0 +1,32 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+th {
+    background-color: #eb98dd; 
+    color: #333;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #eb98dd;
+}
+
+
+td {
+    padding: 10px;
+    border: 1px solid #eb98dd;
+    
+}
+td a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(173, 47, 135);
+    margin-right: 5px;
+}
+td a:last-child {
+    background-color: rgb(102, 15, 83);
+}
+
