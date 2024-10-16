@@ -22,7 +22,7 @@
                     <td>{{ $category->descricao }}</td>
                     <td class="text-center">
                         <a href="{{ route('categories.edit', ['category' => $category->id]) }}" class="btn btn-dark btn-sm">Editar</a>
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-danger btn-sm">Mostrar</a>
+                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-danger btn-sm">Deletar</a>
                     </td>
                 </tr>
                 @endforeach
