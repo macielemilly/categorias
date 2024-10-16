@@ -2,21 +2,36 @@
 
 @section('content')
 
-<h2>Criar</h2>
 
-@if(session('message'))
-        {{ session('message') }}
-    </div>
+@if(session()->has('message'))
+{{ session()->get('message') }}
+</div>
 @endif
 
 
-<form action="{{route('categories.store')}}" method="POST">
-        @csrf
+<div class="container mt-4 form-container">
+    <div>
+        <h1>Adicionar Categoria</h1>
+        <form action="{{ route('categories.store') }}" method="POST">
+            @csrf
 
-        <input type="text" name="nome" placeholder="nome" ><br>
-        <input type="text" name="descricao" placeholder="descriçao"><br>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <div class="col-6">
+                    <input type="text" class="form-control input-pequeno" id="nome" name="nome" placeholder="Nome" required>
+                </div>
+            </div>
 
-        <button type="submit">Criar</button>
-    </form>
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição</label>
+                <div class="col-6">
+                    <input type="text" class="form-control input-pequeno" id="descricao" name="descricao" placeholder="Descrição" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
 
 @endsection

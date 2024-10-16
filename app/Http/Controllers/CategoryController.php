@@ -58,9 +58,9 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view ('category_edit', ['category' => $category]);
     }
 
     /**
@@ -68,7 +68,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $updated = $this->category->where('id', $id)->update($request->except(['_token', '_method']));
+
+        if($updated){
+            return redirect()->back()->with('message', 'editado com sucesso' );
+        }
+        return redirect()->back()->with('message', 'um erro aconteceu' );
     }
 
     /**
