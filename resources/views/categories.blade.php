@@ -3,10 +3,11 @@
 @section('content')
 
 
-<div class="container mt-4">
-        <h1>Categorias</h1>
-        <a href="{{ route('categories.create') }}" class="btn btn-success mb-3">Adicionar</a>
-
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center inicio mb-2">
+    <h1 class="text-danger fw-bold">Categorias</h1>
+    <a href="{{ route('categories.create') }}" class="btn btn-success">Adicionar</a>
+    </div>
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr class="text-center">

@@ -9,7 +9,7 @@
 @endif
 
 <div class="container mt-4">
-    <h1>Editar Categoria</h1>
+    <h1 class="inicio">Editar Categoria</h1>
     <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="POST">
         @csrf
         <input type="hidden" name="_method" value="PUT">

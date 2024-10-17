@@ -11,7 +11,7 @@
 
 <div class="container mt-4 form-container">
     <div>
-        <h1>Adicionar Categoria</h1>
+        <h1 class="inicio">Adicionar Categoria</h1>
         <form action="{{ route('categories.store') }}" method="POST">
             @csrf
 

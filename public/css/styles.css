@@ -3,3 +3,10 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+.inicio {
+    margin-top: 6rem;
+}
+.imagem{
+    height: 45px;
+    Width: 45px;
+}

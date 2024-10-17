@@ -3,8 +3,8 @@
 @section('content')
 
 
-<div class="container">
-        <h2>Confirmar Deleção</h2>
+<div class="containe">
+        <h2 class="inicio">Confirmar exclusão</h2>
         <p>Você tem certeza que deseja deletar a categoria <strong>{{ $category->nome }}</strong>?</p>
         
         <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="POST">
