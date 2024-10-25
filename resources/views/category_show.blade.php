@@ -1,9 +1,9 @@
-@extends('master')
+@extends('layouts.navigation')
 
 @section('content')
 
 
-<div class="containe">
+<div class="container">
         <h2 class="inicio">Confirmar exclusão</h2>
         <p>Você tem certeza que deseja deletar a categoria <strong>{{ $category->nome }}</strong>?</p>
         
