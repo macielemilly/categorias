@@ -23,7 +23,7 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:3|max:255|unique:categories',
-            'descricao' => 'required|min:3|max:255|unique:categories'
+            'descricao' => 'required|min:3|max:255'
         ];
     }
 }

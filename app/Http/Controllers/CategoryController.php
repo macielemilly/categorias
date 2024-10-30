@@ -19,7 +19,7 @@ class CategoryController extends Controller
     
         $categories = $this->category->all();
 
-        return view(view: 'categories', data:['categories'=>$categories] );
+        return view(view: 'category.categories', data:['categories'=>$categories] );
     }
 
     /**
@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category_create');
+        return view('category.category_create');
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category_show', ['category' => $category]);
+        return view('category.category_show', ['category' => $category]);
     }
     
 
@@ -62,7 +62,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view ('category_edit', ['category' => $category]);
+        return view ('category.category_edit', ['category' => $category]);
     }
 
     /**
