@@ -12,14 +12,13 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        $this->category =new category;
+        $this->category = new category;
     }
     public function index()
     {
-    
         $categories = $this->category->all();
 
-        return view(view: 'category.categories', data:['categories'=>$categories] );
+        return view('category.categories', ['categories' => $categories]);
     }
 
     /**
@@ -35,17 +34,16 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-    
+
         $created = $this->category->create([
-            'nome' => $request->input('nome'),        
-            'descricao' => $request->input('descricao') 
+            'nome' => $request->input('nome'),
+            'descricao' => $request->input('descricao')
         ]);
 
-        if($created){
+        if ($created) {
             return redirect()->back()->with(key: 'message', value: 'cadastrado com sucesso');
         }
         return redirect()->back()->with(key: 'message', value: 'um erro aconteceu');
-        
     }
 
     /**
@@ -55,14 +53,14 @@ class CategoryController extends Controller
     {
         return view('category.category_show', ['category' => $category]);
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
     {
-        return view ('category.category_edit', ['category' => $category]);
+        return view('category.category_edit', ['category' => $category]);
     }
 
     /**
@@ -72,10 +70,10 @@ class CategoryController extends Controller
     {
         $updated = $this->category->where('id', $id)->update($request->except(['_token', '_method']));
 
-        if($updated){
-            return redirect()->back()->with('message', 'editado com sucesso' );
+        if ($updated) {
+            return redirect()->back()->with('message', 'editado com sucesso');
         }
-        return redirect()->back()->with('message', 'um erro aconteceu' );
+        return redirect()->back()->with('message', 'um erro aconteceu');
     }
 
     /**
