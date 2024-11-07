@@ -21,22 +21,14 @@
      
         <div class="mb-4">
             <label for="nome" class="block text-white font-medium mb-2">Nome</label>
-            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="nome" name="nome" placeholder="Nome" 
-                value="{{ old('nome') }}"
-            >
+            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700" id="nome" name="nome" placeholder="Nome">
         </div>
 
        
         <div class="mb-4">
             <label for="descricao" class="block text-white font-medium mb-2">Descrição</label>
-            <input 
-                type="text" 
-                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                id="descricao" 
-                name="descricao" 
-                placeholder="Descrição" 
-                value="{{ old('descricao') }}"
-            >
+            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700" id="descricao" 
+                name="descricao" placeholder="Descrição">
         </div>
 
        

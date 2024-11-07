@@ -1,42 +1,41 @@
-@extends('layouts.navigation')
+<x-app-layout>
+    <div class="container mx-auto mt-1 max-w-md p-6 bg-black shadow-lg rounded-lg">
+        <h1 class="text-2xl font-semibold mb-6 text-white">Editar Categoria</h1>
 
-@section('content')
-
-
-
-</div>
-
-
-<div class="container mt-4">
-    <h1 class="inicio">Editar Categoria</h1>
-    @if ($errors->any()){
-    @foreach($errors->all() as $error)
-    {{$error}}
-    @endforeach
-    }
-    @endif
-    <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="POST">
-        @csrf
-        <input type="hidden" name="_method" value="PUT">
-
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <div class="col-6">
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="{{ $category->nome }}">
-            </div>
+        @if ($errors->any())
+        <div class="mb-4 text-red-600">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
+        @endif
 
-        <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição</label>
-            <div class="col-6">
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" value="{{ $category->descricao }}">
+        <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="POST">
+            @csrf
+            @method('PUT')
+
+            <div class="mb-4">
+                <label for="nome" class="block text-white font-medium mb-2">Nome</label>
+                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700"
+                    id="nome" name="nome" placeholder="Nome" value="{{ $category->nome }}">
             </div>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <a href="{{ route('categories.index') }}" class="btn btn-secondary">Voltar</a>
-    </form>
-</div>
+            <div class="mb-4">
+                <label for="descricao" class="block text-white font-medium mb-2">Descrição</label>
+                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700"
+                    id="descricao" name="descricao" placeholder="Descrição" value="{{ $category->descricao }}">
+            </div>
 
-
-@endsection
+            <div class="flex items-center justify-end">
+                <button type="submit" class="px-4 py-2 mx-3 bg-red-700 text-white font-semibold rounded-md hover:bg-red-900">
+                    Enviar
+                </button>
+                <a href="{{ route('categories.index') }}" class="px-4 py-2 bg-gray-300 text-gray-700 font-semibold rounded-md hover:bg-gray-400">
+                    Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</x-app-layout>
