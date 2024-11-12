@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-slot name="header">
         <div class="container flex justify-between ">
             <h2 class="font-extrabold text-4xl text-gray-800 dark:text-red-700 leading-loose">
@@ -9,7 +10,23 @@
                     Adicionar
                 </a>
             </div>
+
     </x-slot>
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        @if(session('success'))
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-3 rounded-md mb-4">
+            <p>{{ session('success') }}</p>
+        </div>
+        @endif
+
+
+        @if(session('error'))
+        <div class="bg-red-200 text-white p-3 rounded-md mb-4">
+            <p>{{ session('error') }}</p>
+        </div>
+        @endif
+    </div>
 
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

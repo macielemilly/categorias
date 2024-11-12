@@ -33,18 +33,20 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreCategoryRequest $request)
-    {
+{
+    
+    $created = Category::create([
+        'nome' => $request->input('nome'),
+        'descricao' => $request->input('descricao'),
+    ]);
 
-        $created = $this->category->create([
-            'nome' => $request->input('nome'),
-            'descricao' => $request->input('descricao')
-        ]);
-
-        if ($created) {
-            return redirect()->back()->with(key: 'message', value: 'cadastrado com sucesso');
-        }
-        return redirect()->back()->with(key: 'message', value: 'um erro aconteceu');
+   
+    if ($created) {
+        return redirect()->route('categories.index')->with('success', 'Categoria cadastrada com sucesso!');
     }
+
+    return redirect()->route('categories.index')->with('error', 'Ocorreu um erro ao cadastrar a categoria.');
+}
 
     /**
      * Display the specified resource.
