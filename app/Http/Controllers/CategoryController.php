@@ -63,6 +63,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view('category.category_edit', ['category' => $category]);
+        
     }
 
     /**
@@ -73,9 +74,9 @@ class CategoryController extends Controller
         $updated = $this->category->where('id', $id)->update($request->except(['_token', '_method']));
 
         if ($updated) {
-            return redirect()->back()->with('message', 'editado com sucesso');
+            return  redirect()->route('categories.index')->with('success', 'Categoria editada com sucesso!');
         }
-        return redirect()->back()->with('message', 'um erro aconteceu');
+        return  redirect()->route('categories.index')->with('error', 'Um erro aconteceu ao editar categoria! Tente novamente');
     }
 
     /**
@@ -83,8 +84,11 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->category->where('id', $id)->delete();
+        $deleted = $this->category->where('id', $id)->delete();
 
-        return redirect()->route(route: 'categories.index');
+        if ($deleted) {
+            return  redirect()->route('categories.index')->with('success', 'Categoria excluida com sucesso!');
+        }
+        return  redirect()->route('categories.index')->with('error', 'Um erro aconteceu ao excluir a categoria! Tente novamente');
     }
 }

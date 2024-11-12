@@ -31,7 +31,7 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <table class="w-full bg-white border border-gray-300 rounded-lg overflow-hidden ">
-            <thead class="bg-gray-800 text-white">
+            <thead class="bg-black text-white">
                 <tr class>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Nome</th>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Descrição</th>
@@ -40,11 +40,11 @@
             </thead>
             <tbody>
                 @foreach($categories as $category)
-                <tr class="border-b border-gray-300 hover:bg-gray-100 transition duration-200">
+                <tr class="border-b border-gray-300 hover:bg-gray-300 transition duration-200">
                     <td class="py-3 px-4 text-md border-r border-gray-300">{{ $category->nome }}</td>
                     <td class="py-3 px-4 text-md border-r border-gray-300">{{ $category->descricao }}</td>
                     <td class="py-3 px-4 text-md text-center">
-                        <a href="{{ route('categories.edit', ['category' => $category->id]) }}" class="bg-yellow-500 text-white font-semibold py-1 px-3 rounded hover:bg-yellow-600 transition duration-200">Editar</a>
+                        <a href="{{ route('categories.edit', ['category' => $category->id]) }}" class="bg-yellow-500 text-black font-semibold py-1 px-3 rounded hover:bg-yellow-600 transition duration-200">Editar</a>
                         <a href="{{ route('categories.show', $category->id) }}" class="bg-red-700 text-white font-semibold py-1 px-3 rounded hover:bg-red-600 transition duration-200">Deletar</a>
                     </td>
                 </tr>

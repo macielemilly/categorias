@@ -33,7 +33,7 @@
                     </label>
                 </div>
 
-                <div class="flex items-center justify-between mt-4">
+                <div class="flex items-center justify-around mt-4">
                     <!-- Links para Esquecer a Senha e Registrar -->
                     <div>
                         @if (Route::has('password.request'))
