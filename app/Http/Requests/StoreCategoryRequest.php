@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCategoryRequest extends FormRequest
@@ -21,9 +23,17 @@ class StoreCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Pegue o ID da categoria diretamente da rota (assumindo que 'id' é o parâmetro da rota)
+       
+    
         return [
-            'nome' => 'required|min:3|max:255|unique:categories',
-            'descricao' => 'required|min:3|max:255'
+            'nome' => [
+                'required',
+                'min:3',
+                'max:255',
+                Rule::unique('categories', 'nome')->ignore($this->route('category')),
+            ],
+            'descricao' => 'required|min:3|max:255',
         ];
     }
 }
