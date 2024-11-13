@@ -23,7 +23,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        // Pegue o ID da categoria diretamente da rota (assumindo que 'id' é o parâmetro da rota)
+        
        
     
         return [
