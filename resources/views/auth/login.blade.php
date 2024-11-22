@@ -43,7 +43,7 @@
                         @endif
                         @if (Route::has('register'))
                             <a class="underline text-sm text-gray-400 hover:text-gray-100 ml-4" href="{{ route('register') }}">
-                                {{ __('Ainda não tem um cadastro?') }}
+                                {{ __('Faça seu cadastro!') }}
                             </a>
                         @endif
                     </div>
