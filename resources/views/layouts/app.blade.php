@@ -50,11 +50,26 @@
                     <i class="fas fa-truck text-lg"></i>
                     <span>Fornecedores</span>
                 </a>
-                <a href="{{ route('profile.edit') }}" class="flex items-center space-x-4 py-3 px-4 hover:bg-red-700 rounded-lg transition">
-                <i class="fa-solid fa-gear text-lg"></i>
-                    <span>configurações</span>
-                </a>
+                <div class="border-t border-gray-700">
+
+                    <a href="{{ route('profile.edit') }}" class="flex items-center space-x-4 py-3 px-4 hover:bg-red-700 rounded-lg transition mt-2">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <a :href="route('logout')" class="flex items-center space-x-4 py-3 px-4 hover:bg-red-700 rounded-lg transition"
+                            onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                            <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
+
+                            <span>Sair</span>
+                        </a>
+                    </form>
+                </div>
             </nav>
+
         </aside>
 
         <button id="menu-toggle" class="fixed top-4 left-4 z-50 md:hidden text-white p-2 rounded-md focus:outline-none">

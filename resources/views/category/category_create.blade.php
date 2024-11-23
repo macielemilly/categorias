@@ -1,7 +1,7 @@
 <x-app-layout>
 
 
-<div class="container mx-auto mt-1 max-w-md p-6 bg-black shadow-lg rounded-lg">
+<div class="container mx-auto mt-1 max-w-md p-6 bg-black shadow-lg rounded-lg mt-10">
     <h1 class="text-2xl font-semibold mb-6 text-white ">Adicionar Categoria</h1>
     
    
