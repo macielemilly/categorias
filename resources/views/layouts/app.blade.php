@@ -36,7 +36,7 @@
                     <span>Início</span>
                 </a>
 
-                <a href="{{ route('categories.index') }}" class="flex items-center space-x-4 py-3 px-4 hover:bg-red-700 rounded-lg transition">
+                <a href="{{ route('products.index') }}" class="flex items-center space-x-4 py-3 px-4 hover:bg-red-700 rounded-lg transition">
                     <i class="fas fa-boxes text-lg"></i>
                     <span>Produtos</span>
                 </a>

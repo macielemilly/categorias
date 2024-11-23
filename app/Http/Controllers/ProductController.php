@@ -40,12 +40,11 @@ class ProductController extends Controller
     /**
      * Store a newly created product in storage.
      */
-    public function store( $request)
+    public function store(Request $request)
     {
        
         $created = Product::create([
             'nome' => $request->input('nome'),
-            'descricao' => $request->input('descricao'),
             'preco' => $request->input('preco'),
             'quantidade' => $request->input('quantidade'),
             'category_id' => $request->input('category_id'),
@@ -82,7 +81,7 @@ class ProductController extends Controller
     /**
      * Update the specified product in storage.
      */
-    public function update( $request, string $id)
+    public function update( Request $request, string $id)
     {
       
         $updated = $this->product->where('id', $id)->update($request->except(['_token', '_method']));

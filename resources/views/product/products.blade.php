@@ -6,7 +6,7 @@
             </h2>
             <div class="mt-7">
                 <a href="{{ route('products.create') }}" class="bg-green-700 text-white font-semibold py-2 px-4 rounded hover:bg-green-900 transition duration-200">
-                    Adicionar Produto
+                    Adicionar
                 </a>
             </div>
         </div>
@@ -32,6 +32,7 @@
                 <tr>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Nome</th>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Preço</th>
+                    <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Quantidade</th>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Categoria</th>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Fornecedor</th>
                     <th class="py-3 px-4 text-left text-lg font-semibold text-center border-r border-gray-700">Ações</th>
@@ -42,15 +43,12 @@
                 <tr class="border-b border-gray-300 hover:bg-gray-300 transition duration-200">
                     <td class="py-3 px-4 text-md border-r border-gray-300">{{ $product->nome }}</td>
                     <td class="py-3 px-4 text-md border-r border-gray-300">{{ number_format($product->preco, 2, ',', '.') }}</td>
+                    <td class="py-3 px-4 text-md border-r border-gray-300">{{ $product->quantidade}}</td>
                     <td class="py-3 px-4 text-md border-r border-gray-300">{{ $product->category->nome }}</td>
                     <td class="py-3 px-4 text-md border-r border-gray-300">{{ $product->supplier->nome }}</td>
                     <td class="py-3 px-4 text-md text-center">
-                        <a href="{{ route('products.edit', $product->id) }}" class="bg-yellow-500 text-black font-semibold py-1 px-3 rounded hover:bg-yellow-600 transition duration-200">Editar</a>
-                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-700 text-white font-semibold py-1 px-3 rounded hover:bg-red-600 transition duration-200">Deletar</button>
-                        </form>
+                        <a href="{{ route('products.edit', ['product' => $product->id]) }}" class="bg-yellow-500 text-black font-semibold py-1 px-3 rounded hover:bg-yellow-600 transition duration-200">Editar</a>
+                        <a href="{{ route('products.show', $product->id) }}" class="bg-red-700 text-white font-semibold py-1 px-3 rounded hover:bg-red-600 transition duration-200">Deletar</a>
                     </td>
                 </tr>
                 @endforeach
