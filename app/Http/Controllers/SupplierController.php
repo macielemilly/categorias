@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\SupplierRequest;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
@@ -35,7 +35,7 @@ class SupplierController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(SupplierRequest $request)
     {
         $created = Supplier::create([
             'nome' => $request->input('nome'),
@@ -70,7 +70,7 @@ class SupplierController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreCategoryRequest $request, string $id)
+    public function update(SupplierRequest $request, string $id)
     {
         $updated = $this->supplier->where('id', $id)->update($request->except(['_token', '_method']));
 

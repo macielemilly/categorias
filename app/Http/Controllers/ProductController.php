@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Supplier;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -40,7 +41,7 @@ class ProductController extends Controller
     /**
      * Store a newly created product in storage.
      */
-    public function store(Request $request)
+    public function store( ProductRequest $request)
     {
        
         $created = Product::create([
@@ -81,7 +82,7 @@ class ProductController extends Controller
     /**
      * Update the specified product in storage.
      */
-    public function update( Request $request, string $id)
+    public function update(ProductRequest  $request, string $id)
     {
       
         $updated = $this->product->where('id', $id)->update($request->except(['_token', '_method']));

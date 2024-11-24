@@ -3,17 +3,17 @@
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use App\Models\Category;
+use App\Models\Supplier;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class SupplierRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return true; // Pode ser ajustado de acordo com a lógica de autorização.
     }
 
     /**
@@ -28,7 +28,16 @@ class StoreCategoryRequest extends FormRequest
                 'required',
                 'min:3',
                 'max:255',
-                Rule::unique('categories', 'nome')->ignore($this->route('category')),
+            ],
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('suppliers', 'email')->ignore($this->route('supplier')), 
+            ],
+            'telefone' => [
+                'required',
+                'regex:(^\(?[1-9]{2}\)? ?(?:[2-8]|9[0-9])[0-9]{3}\-?[0-9]{4}$)', 
             ],
             'descricao' => 'required|min:3|max:255',
         ];
